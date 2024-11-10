@@ -10,4 +10,6 @@
         player1.client = c1
         player2.client = c2
 
+    proc/Tick()
+    
     

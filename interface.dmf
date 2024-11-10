@@ -1,0 +1,17 @@
+macro "macro"
+
+window "mapwindow"
+	elem "mapwindow"
+		type = MAIN
+		size = 640x480
+        is-default = true
+		macro = "macro"
+        icon = "icons/mob.dmi"
+	elem "map"
+		type = MAP
+		pos = 0,0
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+
+ 
