@@ -2,121 +2,124 @@
 "a" = (
 /turf/default,
 /area)
+"J" = (
+/turf/border,
+/area)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
+J
 "}
 (2,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (3,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (4,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (5,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (6,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (7,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (8,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (9,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (10,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (11,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (12,1,1) = {"
+J
 a
 a
 a
 a
 a
-a
-a
+J
 "}
 (13,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
+J
 "}

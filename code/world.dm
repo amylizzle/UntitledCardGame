@@ -1,7 +1,7 @@
     
 var/global/list/mob/lobby_player/waiting_players = list()
 var/global/list/datum/board/boards[MAX_SIMULTANEOUS_GAMES]
-
+var/global/list/possible_map_files = list()
 
 /world
     mob = /mob/lobby_player
@@ -11,6 +11,7 @@ var/global/list/datum/board/boards[MAX_SIMULTANEOUS_GAMES]
     
     New()
         waiting_players += new /mob/lobby_player()
+        possible_map_files += "maps/boards/basic_board.dmm" //TODO do this properly
         DoTick()
 
     proc/DoTick() //TODO use Tick() when OD implements it
