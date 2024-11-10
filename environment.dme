@@ -1,0 +1,9 @@
+#include "code\_defines.dm"
+#include "code\board.dm"
+#include "code\player.dm"
+#include "code\card.dm"
+#include "code\lobby_player.dm"
+#include "code\world.dm"
+#include "code\boardtiles\turfs.dm"
+
+#include "maps/lobby.dmm"

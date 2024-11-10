@@ -1,0 +1,4 @@
+*.dmb
+*.json
+*.rsc
+/.vscode
