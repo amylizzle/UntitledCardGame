@@ -3,8 +3,9 @@
 
     Logout()
         . = ..()
-        world.waiting_players -= src
+        waiting_players -= src
 
     Login()
         . = ..()
-        world.waiting_players += src
+        waiting_players += src
+        src.loc = locate(7,7,1)

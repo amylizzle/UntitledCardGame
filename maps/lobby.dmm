@@ -1,15 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/area,
-/turf/default)
+/turf/default,
+/area)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -26,20 +20,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (3,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -56,20 +38,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -86,20 +56,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (7,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -116,20 +74,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (9,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -146,20 +92,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (11,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
@@ -176,20 +110,8 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
 "}
 (13,1,1) = {"
-a
-a
-a
-a
-a
-a
 a
 a
 a
