@@ -5,9 +5,8 @@ var/global/list/possible_map_files = list()
 
 /world
     mob = /mob/lobby_player
-    view = "13x7"
+    view = "21x21"
     turf = /turf/default
-    maxz = MAX_SIMULTANEOUS_GAMES+1
     
     New()
         waiting_players += new /mob/lobby_player()

@@ -31,4 +31,4 @@
     Click(location, control, params)
         . = ..()
         world.log << "card clicked belonging to [owner.client?.key]"
-        owner.board.PlayCard(owner, src)
+        owner.board.PlayCard(owner, src, isnull(owner.board.player1cards[1].card) ? owner.board.player1cards[1] : owner.board.player2cards[1])
