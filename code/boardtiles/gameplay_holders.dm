@@ -6,6 +6,7 @@
     var/image/opponent_client_image
     var/image/player_client_image
     var/obj/cardholder/opposed_cardholder
+    var/obj/highlight/highlight
 
     New()
         .=..()
@@ -30,9 +31,9 @@
 
     proc/Highlight(var/on = TRUE)
         if(on)
-            src.overlays += image('icons/cards.dmi', "highlight")
+            src.highlight = new /obj/highlight(src.loc, src)
         else
-            src.overlays = null
+            del(src.highlight)
 
     Click(location, control, params)
         . = ..()
@@ -47,3 +48,16 @@
         world.log << "opponent card"
         opponent_client_image.pixel_y = (opposed_cardholder.y - src.y) * world.icon_size
         player_client_image.pixel_y = 0
+
+/obj/highlight
+    icon = 'icons/cards.dmi'
+    icon_state = "highlight"
+    mouse_opacity = 2
+    var/obj/cardholder/parent
+
+    New(loc, var/obj/cardholder/parent)
+        .=..()
+        src.parent = parent
+
+    Click(location, control, params)
+        parent.Click(location, control, params)
