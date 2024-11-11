@@ -26,8 +26,11 @@
 
     proc/UpdateAppearance()
         src.vis_contents = src.hand
+        var/pixoffset = -64
         if(src.client)            
             for(var/obj/card/c in src.hand)
+                c.pixel_x = pixoffset
+                pixoffset += 16
                 var/image/card_overlay = new /image(c.inhand_icon, c.inhand_icon_state)
                 card_overlay.loc = c
                 card_overlay.override = TRUE

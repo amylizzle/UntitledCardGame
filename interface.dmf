@@ -10,6 +10,7 @@ window "mapwindow"
 	elem "map"
 		type = MAP
 		pos = 0,0
+		size = 0x0
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true

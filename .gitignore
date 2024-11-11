@@ -1,4 +1,5 @@
 *.dmb
 *.json
 *.rsc
+*.rsc.lk
 /.vscode
