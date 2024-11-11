@@ -20,7 +20,15 @@
         opponent_client_image.pixel_y = world.maxy/2 * world.icon_size
         opponent_client_image.transform = matrix(180, MATRIX_ROTATE)
 
+    proc/FaceUpForPlay()
+        icon = inhand_icon
+        icon_state = inhand_icon_state
+        pixel_x = 0
+        pixel_y = 0
+        opponent_client_image = null
+        inhand_client_image = null
+
     Click(location, control, params)
         . = ..()
         world.log << "card clicked belonging to [owner.client?.key]"
-        
+        owner.board.PlayCard(owner, src)

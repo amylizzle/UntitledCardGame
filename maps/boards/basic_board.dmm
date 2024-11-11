@@ -2,11 +2,23 @@
 "a" = (
 /turf/default,
 /area)
+"z" = (
+/obj/cardholder/opponent,
+/turf/default,
+/area)
 "J" = (
 /turf/border,
 /area)
+"M" = (
+/obj/cardholder,
+/turf/default,
+/area)
 
 (1,1,1) = {"
+J
+J
+J
+J
 J
 J
 J
@@ -22,6 +34,10 @@ a
 a
 a
 a
+a
+a
+a
+a
 J
 "}
 (3,1,1) = {"
@@ -29,12 +45,20 @@ J
 a
 a
 a
+z
 a
+a
+a
+M
 a
 J
 "}
 (4,1,1) = {"
 J
+a
+a
+a
+a
 a
 a
 a
@@ -47,12 +71,20 @@ J
 a
 a
 a
+z
 a
+a
+a
+M
 a
 J
 "}
 (6,1,1) = {"
 J
+a
+a
+a
+a
 a
 a
 a
@@ -65,12 +97,20 @@ J
 a
 a
 a
+z
 a
+a
+a
+M
 a
 J
 "}
 (8,1,1) = {"
 J
+a
+a
+a
+a
 a
 a
 a
@@ -83,12 +123,20 @@ J
 a
 a
 a
+z
 a
+a
+a
+M
 a
 J
 "}
 (10,1,1) = {"
 J
+a
+a
+a
+a
 a
 a
 a
@@ -101,7 +149,11 @@ J
 a
 a
 a
+z
 a
+a
+a
+M
 a
 J
 "}
@@ -112,9 +164,30 @@ a
 a
 a
 a
+a
+a
+a
+a
 J
 "}
 (13,1,1) = {"
+J
+a
+a
+a
+a
+a
+a
+a
+a
+a
+J
+"}
+(14,1,1) = {"
+J
+J
+J
+J
 J
 J
 J

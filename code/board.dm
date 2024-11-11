@@ -37,7 +37,7 @@
             player = new()
             player.client = player2.client
 
-    proc/RedrawCards()
+    proc/RenderHands()
         var/pixel_offset = -64
         player1.client?.images = null
         player2.client?.images = null
@@ -53,4 +53,8 @@
             player2.client?.images += c.inhand_client_image
             player1.client?.images += c.opponent_client_image
               
-            
+    proc/PlayCard(var/mob/player/player, var/obj/card/card)
+        player.hand -= card
+        card.loc = locate(5,3,src.z_level)
+        card.FaceUpForPlay()
+        RenderHands()

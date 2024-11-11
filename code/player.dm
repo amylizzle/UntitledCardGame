@@ -14,7 +14,7 @@
 
     Login()
         . = ..()
-        board.RedrawCards()
+        board.RenderHands()
 
     proc/Draw()
         if(length(deck) == 0)
@@ -23,7 +23,7 @@
         hand += draw
         draw.loc = src.loc
         deck.len--
-        board.RedrawCards()
+        board.RenderHands()
 
 
         
