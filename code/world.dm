@@ -9,7 +9,7 @@ var/global/list/possible_map_files = list()
     turf = /turf/default
     
     New()
-        waiting_players += new /mob/lobby_player()
+        //waiting_players += new /mob/lobby_player()
         possible_map_files += "maps/boards/basic_board.dmm" //TODO do this properly
         DoTick()
 

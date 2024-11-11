@@ -16,6 +16,7 @@
 
     proc/SetCard(var/obj/card/card)
         src.card = card
+        card.loc = src
         opponent_client_image = image(card.inhand_icon, card.inhand_icon_state)
         opponent_client_image.loc = src
         opponent_client_image.override = TRUE
@@ -25,6 +26,16 @@
         
         opponent_client_image.pixel_y = 96
         player_client_image.pixel_y = 0
+
+    proc/Highlight()
+        icon = 'icons/cards.dmi'
+        icon_state = "cardslot_player"
+        filters = filter(type="outline", size=3, color="#00ff00")
+
+    Click(location, control, params)
+        . = ..()
+        if(boards[src.z].selected)
+            boards[src.z].PlayCard(boards[src.z].selected.owner, boards[src.z].selected, src)
 
 /obj/cardholder/opponent
     icon_state = "cardslot_opponent"

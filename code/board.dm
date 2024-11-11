@@ -5,6 +5,8 @@
     var/list/obj/cardholder/player2cards[LANE_COUNT]
     var/z_level = -1
 
+    var/obj/card/selected
+
     New(var/z_level, var/client/c1, var/client/c2)
         //if(!isnum(z_level) || !istype(c1) || !istype(c2))
         //    throw EXCEPTION("invalid args for new board ([z_level],[c1],[c2])")
@@ -82,8 +84,17 @@
             player1.client?.images += ch.opponent_client_image
             player2.client?.images += ch.player_client_image
               
+    proc/SelectCard(var/mob/player/player, var/obj/card/card)
+        for(var/obj/cardholder/ch in player1cards)
+            if(isnull(ch.card))
+                ch.Highlight()
+        selected = card
+        world.log << "filters"
+
     proc/PlayCard(var/mob/player/player, var/obj/card/card, var/obj/cardholder/holder)
+        world.log << "playing"
         player.hand -= card
         card.FaceUpForPlay()
         holder.SetCard(card)
         RenderHands()
+        world.log << "done"
