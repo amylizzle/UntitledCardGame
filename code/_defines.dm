@@ -1,3 +1,8 @@
 /// defines file
 #define MAX_SIMULTANEOUS_GAMES 16
 #define LANE_COUNT 5
+
+#define GAME_STATE_PREINIT 0
+#define GAME_STATE_PLAYER 1
+#define GAME_STATE_OPPONENT 2
+#define GAME_STATE_FINISHED 3

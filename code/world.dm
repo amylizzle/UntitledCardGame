@@ -2,6 +2,7 @@
 var/global/list/mob/lobby_player/waiting_players = list()
 var/global/list/datum/board/boards[MAX_SIMULTANEOUS_GAMES]
 var/global/list/possible_map_files = list()
+var/global/list/cardholder/to_register = list()
 
 /world
     mob = /mob/lobby_player
