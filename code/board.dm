@@ -10,20 +10,24 @@
         //load map and clear all turfs
         var/dmm_suite/reader = new()
         reader.read_map(file2text(pick(possible_map_files)), 1, 1, src.z_level, flags=DMM_OVERWRITE_MOBS|DMM_OVERWRITE_OBJS)
-        player1 = new()
-        player2 = new()
-
-        player1.loc = locate(7,1,src.z_level)
-        
-        player2.loc = locate(7,7,src.z_level)
+        player1 = new(locate(7,4,src.z_level), src)
+        player2 = new(locate(7,4,src.z_level), src)
 
         player1.client = c1
         player2.client = c2
+        StartGame()
+
 
     proc/Tick()
 
     proc/EndTurn()
     
+    proc/StartGame()
+        //draw a starting hand
+        for(var/i = 1 to 3)
+            player1.Draw()
+            player2.Draw()
+
     proc/EndGame()
         var/mob/lobby_player/player
         if(player1.client)
@@ -33,3 +37,20 @@
             player = new()
             player.client = player2.client
 
+    proc/RedrawCards()
+        var/pixel_offset = -64
+        player1.client?.images = null
+        player2.client?.images = null
+        for(var/obj/card/c in player1.hand)
+            c.pixel_x = pixel_offset
+            pixel_offset += 10
+            player1.client?.images += c.inhand_client_image
+            player2.client?.images += c.opponent_client_image
+              
+        for(var/obj/card/c in player2.hand)
+            c.pixel_x = pixel_offset
+            pixel_offset += 10
+            player2.client?.images += c.inhand_client_image
+            player1.client?.images += c.opponent_client_image
+              
+            

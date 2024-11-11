@@ -3,36 +3,27 @@
 
     var/list/obj/card/hand = list()
     var/list/obj/card/deck = list()
+    var/datum/board/board
 
-    New()
-        .=..()
+    New(loc, board)
+        .=..(loc)
+        src.board = board
         for(var/i = 1 to 10)
-            deck += new /obj/card()
+            deck += new /obj/card(null, src)
         //shuffle deck
-
-        //draw a starting hand
-        for(var/i = 1 to 3)
-            Draw()
 
     Login()
         . = ..()
-        UpdateAppearance()
+        board.RedrawCards()
 
     proc/Draw()
         if(length(deck) == 0)
             return
-        hand += deck[length(deck)]
+        var/obj/card/draw = deck[length(deck)]
+        hand += draw
+        draw.loc = src.loc
         deck.len--
+        board.RedrawCards()
 
-    proc/UpdateAppearance()
-        src.vis_contents = src.hand
-        var/pixoffset = -64
-        if(src.client)            
-            for(var/obj/card/c in src.hand)
-                c.pixel_x = pixoffset
-                pixoffset += 16
-                var/image/card_overlay = new /image(c.inhand_icon, c.inhand_icon_state)
-                card_overlay.loc = c
-                card_overlay.override = TRUE
-                src.client.images += card_overlay
+
         
