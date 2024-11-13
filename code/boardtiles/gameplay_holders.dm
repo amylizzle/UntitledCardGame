@@ -2,11 +2,13 @@
     icon = 'icons/cards.dmi'
     icon_state = "cardslot_player"
     mouse_opacity = 2
+    plane = PLANE_BOARD_OBJECTS
     var/obj/card/card = null
     var/obj/cardholder/opposed_cardholder
     //this cardholder's twin on the other players board
     var/obj/cardholder/twin_cardholder
     var/obj/highlight/highlight
+
 
     New()
         .=..()

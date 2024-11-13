@@ -1,6 +1,7 @@
 /obj/card
     icon = 'icons/cards.dmi'
     icon_state = "front_blank"
+    plane = PLANE_CARDS
     var/mob/player/owner 
     //handle to this card's facedown copy in the opponents view
     var/obj/facedown_card/opponent_facedown
