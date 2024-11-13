@@ -28,6 +28,7 @@ var/global/list/cardholder/to_register = list()
 
                 var/datum/board/newgame = new(z, player1.client, player2.client)
                 boards[z] = newgame
+                boards[z+1] = newgame
                 //no need to keep around their lobby mobs
                 del(player1) 
                 del(player2)
@@ -42,10 +43,10 @@ var/global/list/cardholder/to_register = list()
     proc/GetAvailableZLevel()
         //z level 1 is the lobby
         var/z = 1
-        while(z < MAX_SIMULTANEOUS_GAMES)
+        while(z < MAX_SIMULTANEOUS_GAMES*2)
             if(isnull(boards[z]))
                 return z+1 //+1 to skip the lobby
-            z++
+            z+=2 //each board gets two zlevels
         return -1
 
 
