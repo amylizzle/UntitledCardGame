@@ -14,6 +14,10 @@
         world.log << "card clicked belonging to [owner.client?.key]"
         owner.board.SelectCard(owner,src)
 
+    proc/AttackCard(var/obj/card/opposing_card)
+
+    proc/AttackPlayer()
+
 /obj/facedown_card
     icon = 'icons/cards.dmi'
     icon_state = "back_blank"

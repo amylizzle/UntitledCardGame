@@ -18,3 +18,4 @@
 #include "interface.dmf"
 
 #include "code\boardtiles\gameplay_holders.dm"
+#include "code\board_bits.dm"

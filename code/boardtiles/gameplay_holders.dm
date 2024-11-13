@@ -31,6 +31,15 @@
             icon = null
             icon_state = null
 
+    proc/DoTurn()
+        if(!card)
+            return
+        if(opposed_cardholder.card)
+            card.AttackCard(opposed_cardholder.card)
+        else
+            card.AttackPlayer()
+
+
     Click(location, control, params)
         . = ..()
         if(boards[src.z].selected)

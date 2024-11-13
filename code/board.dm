@@ -24,8 +24,8 @@
         reader.read_map(file2text(pick(possible_map_files)), 1, 1, src.z_level_player1, flags=DMM_OVERWRITE_MOBS|DMM_OVERWRITE_OBJS)
         reader.read_map(file2text(pick(possible_map_files)), 1, 1, src.z_level_player2, flags=DMM_OVERWRITE_MOBS|DMM_OVERWRITE_OBJS)
         
-        player1 = new(locate(world.maxx/2,world.maxy/2,src.z_level_player1), src)
-        player2 = new(locate(world.maxx/2,world.maxy/2,src.z_level_player2), src)
+        player1 = new(locate(world.maxx/2,4,src.z_level_player1), src)
+        player2 = new(locate(world.maxx/2,4,src.z_level_player2), src)
 
         player1.client = c1
         player2.client = c2
@@ -57,10 +57,27 @@
     proc/Tick()
         if(gamestate == GAME_STATE_PREINIT)
             StartGame()
-            gamestate = GAME_STATE_PLAYER
+            gamestate = GAME_STATE_PLAYER1
 
 
     proc/EndTurn()
+        //do the active cards
+        if(gamestate == GAME_STATE_PLAYER1)
+            for(var/obj/cardholder/ch in player1_player1cards)
+                ch.DoTurn()
+        else if(gamestate == GAME_STATE_PLAYER2)
+            for(var/obj/cardholder/ch in player2_player2cards)
+                ch.DoTurn()
+
+        //reset turn timer
+
+        //swap active player and draw a card
+        if(gamestate == GAME_STATE_PLAYER1)
+            gamestate = GAME_STATE_PLAYER2
+            Draw(player2)
+        else if(gamestate == GAME_STATE_PLAYER2)
+            gamestate = GAME_STATE_PLAYER1
+            Draw(player1)
     
     proc/StartGame()
         for(var/obj/cardholder/ch in to_register)
@@ -139,6 +156,8 @@
 
               
     proc/SelectCard(var/mob/player/player, var/obj/card/card)
+        if((gamestate == GAME_STATE_PLAYER1 && player != player1) || (gamestate == GAME_STATE_PLAYER2 && player != player2) || card.owner != player)
+            return
         var/list/obj/cardholder/ch_list 
         if(player == src.player1)
             ch_list = player1_player1cards
