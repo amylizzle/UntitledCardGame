@@ -112,7 +112,30 @@
         drawn.opponent_facedown = new(locate(world.maxx/2, world.maxy, player == player1 ? player2.z : player1.z), player)
         //animate both moving from deck to hand
 
+        //rebalance hands
+        RecalculateHandSpacing()
 
+    proc/RecalculateHandSpacing()
+        //special case for single cards
+        if(length(player1.hand) == 1)
+            player1.hand[1].pixel_x = 0
+            player1.hand[1].opponent_facedown.pixel_x = 0
+        else
+            var/deltax = min((7*world.icon_size)/(length(player1.hand)+1),32)
+            var/total_length = length(player1.hand) * deltax
+            for(var/i in 1 to length(player1.hand))
+                player1.hand[i].pixel_x = (world.maxx/2) - (total_length/2) + ((i-1) * deltax)
+                player1.hand[i].opponent_facedown.pixel_x = (world.maxx/2) - (total_length/2) + ((i-1) * deltax)
+
+        if(length(player2.hand) == 1)
+            player2.hand[1].pixel_x = 0
+            player2.hand[1].opponent_facedown.pixel_x = 0
+        else
+            var/deltax = min((7*world.icon_size)/(length(player2.hand)+1),32)
+            var/total_length = length(player2.hand) * deltax
+            for(var/i in 1 to length(player2.hand))
+                player2.hand[i].pixel_x = (world.maxx/2) - (total_length/2) + ((i-1) * deltax)
+                player2.hand[i].opponent_facedown.pixel_x = (world.maxx/2) - (total_length/2) + ((i-1) * deltax)
 
               
     proc/SelectCard(var/mob/player/player, var/obj/card/card)
@@ -138,4 +161,5 @@
         else
             for(var/obj/cardholder/ch in player2_player2cards)
                 ch.Highlight(FALSE)
+        RecalculateHandSpacing()
 

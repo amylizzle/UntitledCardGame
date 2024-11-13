@@ -18,6 +18,8 @@
     proc/SetCard(var/obj/card/card)
         world.log << "player card"
         src.card = card
+        card.pixel_x = src.pixel_x
+        card.pixel_y = src.pixel_y
         card.loc = src.loc 
         twin_cardholder.appearance = card.appearance       
 

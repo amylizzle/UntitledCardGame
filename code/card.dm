@@ -22,3 +22,4 @@
         .=..()
         icon = owning_player.cardback_icon
         icon_state = owning_player.cardback_iconstate
+        transform = matrix(180, MATRIX_ROTATE)
