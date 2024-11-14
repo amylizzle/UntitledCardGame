@@ -120,6 +120,8 @@
 
     proc/Draw(var/mob/player/player) 
         //pick a card from the deck
+        if(length(player.deck) == 0)
+            return
         var/obj/card/drawn = player.deck[length(player.deck)]
         player.deck.len-- 
         //put it in the hand of the drawing player

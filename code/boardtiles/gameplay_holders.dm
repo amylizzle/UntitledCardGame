@@ -8,6 +8,7 @@
     //this cardholder's twin on the other players board
     var/obj/cardholder/twin_cardholder
     var/obj/highlight/highlight
+    var/mutable_appearance/return_appearance
 
 
     New()
@@ -16,14 +17,16 @@
         icon_state = null
         //register with the board after board.New() completes
         to_register += src
+        return_appearance = src.appearance
 
     proc/SetCard(var/obj/card/card)
         world.log << "player card"
         src.card = card
+        src.twin_cardholder.card = card
         card.pixel_x = src.pixel_x
         card.pixel_y = src.pixel_y
         card.loc = src.loc 
-        twin_cardholder.appearance = card.appearance       
+        NotifyChange()     
 
     proc/Highlight(var/on = TRUE)
         if(on)
@@ -33,13 +36,22 @@
             icon = null
             icon_state = null
 
+    proc/NotifyChange()
+        if(card && card.health > 0)
+            twin_cardholder.appearance = card.appearance
+        else
+            twin_cardholder.appearance = twin_cardholder.return_appearance
+
     proc/DoTurn()
         if(!card)
             return
         if(opposed_cardholder.card)
             card.AttackCard(opposed_cardholder.card)
+            opposed_cardholder.NotifyChange()
+            src.NotifyChange()
         else
             card.AttackPlayer()
+
 
 
     Click(location, control, params)

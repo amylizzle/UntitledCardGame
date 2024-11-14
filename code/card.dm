@@ -6,18 +6,28 @@
     //handle to this card's facedown copy in the opponents view
     var/obj/facedown_card/opponent_facedown
 
+    var/health = 1
+    var/attack = 1
+
     New(loc, owning_player)
         .=..()
         owner = owning_player
 
     Click(location, control, params)
         . = ..()
-        world.log << "card clicked belonging to [owner.client?.key]"
-        owner.board.SelectCard(owner,src)
+        if(src in owner.hand)
+            owner.board.SelectCard(owner,src)   
 
     proc/AttackCard(var/obj/card/opposing_card)
-
+        opposing_card.TakeDamage(attack)
+        
     proc/AttackPlayer()
+
+    proc/TakeDamage(var/damage)
+        health -= damage
+        
+        if(health <= 0)            
+            del(src)
 
 /obj/facedown_card
     icon = 'icons/cards.dmi'
