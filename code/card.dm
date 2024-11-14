@@ -21,7 +21,8 @@
     proc/AttackCard(var/obj/card/opposing_card)
         opposing_card.TakeDamage(attack)
         
-    proc/AttackPlayer()
+    proc/AttackPlayer(var/mob/player/attacked)
+        attacked.TakeDamage(attack)
 
     proc/TakeDamage(var/damage)
         health -= damage

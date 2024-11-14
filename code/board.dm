@@ -26,7 +26,8 @@
         
         player1 = new(locate(world.maxx/2,4,src.z_level_player1), src)
         player2 = new(locate(world.maxx/2,4,src.z_level_player2), src)
-
+        player1.opponent = player2
+        player2.opponent = player1
         player1.client = c1
         player2.client = c2
         
@@ -176,6 +177,7 @@
         player.hand -= card
         del(card.opponent_facedown)
         holder.SetCard(card)
+        src.selected = null
         if(player == player1)
             for(var/obj/cardholder/ch in player1_player1cards)
                 ch.Highlight(FALSE)

@@ -17,7 +17,7 @@
         icon_state = null
         //register with the board after board.New() completes
         to_register += src
-        return_appearance = src.appearance
+        return_appearance = new(src.appearance)
 
     proc/SetCard(var/obj/card/card)
         world.log << "player card"
@@ -41,6 +41,7 @@
             twin_cardholder.appearance = card.appearance
         else
             twin_cardholder.appearance = twin_cardholder.return_appearance
+            twin_cardholder.Highlight()
 
     proc/DoTurn()
         if(!card)
@@ -50,9 +51,7 @@
             opposed_cardholder.NotifyChange()
             src.NotifyChange()
         else
-            card.AttackPlayer()
-
-
+            card.AttackPlayer(card.owner.opponent)
 
     Click(location, control, params)
         . = ..()

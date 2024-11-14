@@ -8,6 +8,7 @@
     var/list/obj/card/hand = list()
     var/list/obj/card/deck = list()
     var/datum/board/board
+    var/mob/player/opponent
 
     var/health = 7
     var/stamina = 5
@@ -21,6 +22,12 @@
         src.stamina_indicator = new(get_step(get_step(src, EAST), EAST), src)
         src.health_indicator.UpdateHealth()
         src.stamina_indicator.UpdateStamina()
+
+    proc/TakeDamage(var/damage)
+        src.health -= damage
+        health_indicator.UpdateHealth()
+        if(src.health <= 0)
+            board.EndGame()
 
 
 
