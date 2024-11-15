@@ -5,7 +5,11 @@
 
     Click(location, control, params)
         . = ..()
-        boards[src.z].EndTurn()
+        var/datum/board/board = boards[src.z]
+        if(board.gamestate == GAME_STATE_PLAYER1 && usr == board.player1)
+            board.EndTurn()
+        else if(board.gamestate == GAME_STATE_PLAYER2 && usr == board.player2)
+            board.EndTurn()
 
 /obj/health_indicator
     var/mob/player/owner

@@ -9,6 +9,9 @@
 #include "code\lobby_player.dm"
 #include "code\world.dm"
 #include "code\boardtiles\turfs.dm"
+#include "code\boardtiles\gameplay_holders.dm"
+#include "code\boardtiles\board_bits.dm"
+
 #include "code\z_dmm_suite\_preprocessor_and_utilities.dm"
 #include "code\z_dmm_suite\api.dm"
 #include "code\z_dmm_suite\reader.dm"
@@ -17,5 +20,4 @@
 #include "maps/lobby.dmm"
 #include "interface.dmf"
 
-#include "code\boardtiles\gameplay_holders.dm"
-#include "code\board_bits.dm"
+
