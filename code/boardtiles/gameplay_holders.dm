@@ -6,7 +6,7 @@
     var/obj/card/card = null
     var/obj/cardholder/opposed_cardholder
     //this cardholder's twin on the other players board
-    var/obj/cardholder/twin_cardholder
+    var/obj/cardholder/opponent/twin_cardholder
     var/obj/highlight/highlight
     var/mutable_appearance/return_appearance
 
@@ -22,7 +22,7 @@
     proc/SetCard(var/obj/card/card)
         world.log << "player card"
         src.card = card
-        src.twin_cardholder.card = card
+        src.twin_cardholder.SetCard(card)
         card.pixel_x = src.pixel_x
         card.pixel_y = src.pixel_y
         card.loc = src.loc 
@@ -37,11 +37,7 @@
             icon_state = null
 
     proc/NotifyChange()
-        if(card && card.health > 0)
-            twin_cardholder.appearance = card.appearance
-        else
-            twin_cardholder.appearance = twin_cardholder.return_appearance
-            twin_cardholder.Highlight()
+        twin_cardholder.NotifyChange()
 
     proc/DoTurn()
         if(!card)
@@ -61,3 +57,12 @@
 /obj/cardholder/opponent
     icon_state = "cardslot_opponent"
 
+    SetCard(obj/card/card)
+        src.card = card
+        NotifyChange()
+
+    NotifyChange()
+        if(card)
+            src.appearance = card.appearance
+        else
+            src.appearance = return_appearance

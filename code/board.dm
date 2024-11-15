@@ -3,9 +3,9 @@
     var/mob/player/player2
     //these lists handle the cards played to the board - they are organised as <player viewing the cards>_<player who's cards they are>
     var/list/obj/cardholder/player1_player1cards[LANE_COUNT]
-    var/list/obj/cardholder/player1_player2cards[LANE_COUNT]
-    var/list/obj/cardholder/player2_player1cards[LANE_COUNT]
+    var/list/obj/cardholder/opponent/player1_player2cards[LANE_COUNT]
     var/list/obj/cardholder/player2_player2cards[LANE_COUNT]
+    var/list/obj/cardholder/opponent/player2_player1cards[LANE_COUNT]
 
     var/z_level_player1 = -1
     var/z_level_player2 = -1
@@ -97,7 +97,7 @@
             player2_player1cards[i].opposed_cardholder = player2_player2cards[i]
             player2_player1cards[i].twin_cardholder = player1_player1cards[i]
 
-            player2_player2cards[i].opposed_cardholder = player2_player1cards[i]
+            player2_player2cards[i].opposed_cardholder = player1_player1cards[i]
             player2_player2cards[i].twin_cardholder = player1_player2cards[i]
 
         //populate decks
