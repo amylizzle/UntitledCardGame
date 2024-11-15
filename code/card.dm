@@ -20,11 +20,13 @@
             owner.board.SelectCard(owner,src)   
 
     proc/AttackCard(var/obj/cardholder/holder, var/obj/cardholder/opponent/opposing_holder)
-        new /datum/card_effect/basic_card_attack(holder)        
+        new /datum/card_effect/basic_card_attack(holder)   
+        sleep(50)     
         opposing_holder.card.TakeDamage(attack)
         
     proc/AttackPlayer(var/obj/cardholder/holder, var/mob/player/attacked)
         new /datum/card_effect/basic_player_attack(holder, attacked)
+        sleep(50)
         attacked.TakeDamage(attack)
 
     proc/TakeDamage(var/damage)
