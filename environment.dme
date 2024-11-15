@@ -11,6 +11,7 @@
 #include "code\boardtiles\turfs.dm"
 #include "code\boardtiles\gameplay_holders.dm"
 #include "code\boardtiles\board_bits.dm"
+#include "code\effects\base.dm"
 
 #include "code\z_dmm_suite\_preprocessor_and_utilities.dm"
 #include "code\z_dmm_suite\api.dm"
@@ -19,5 +20,3 @@
 
 #include "maps/lobby.dmm"
 #include "interface.dmf"
-
-

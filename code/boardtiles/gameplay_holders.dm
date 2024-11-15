@@ -43,11 +43,11 @@
         if(!card)
             return
         if(opposed_cardholder.card)
-            card.AttackCard(opposed_cardholder.card)
+            card.AttackCard(src, opposed_cardholder)
             opposed_cardholder.NotifyChange()
-            src.NotifyChange()
         else
-            card.AttackPlayer(card.owner.opponent)
+            card.AttackPlayer(src, card.owner.opponent)
+        NotifyChange()
 
     Click(location, control, params)
         . = ..()
